@@ -1,7 +1,7 @@
 # Учебный проект «Куплю. Продам» [![Build status][travis-image]][travis-url]
 
 * Студент: [Анастасия](https://up.htmlacademy.ru/nodejs/3/user/1385139).
-* Наставник: `Неизвестно`.
+* Наставник: [Роман Шестернин](https://htmlacademy.ru/profile/id1831979).
 
 ---
 
