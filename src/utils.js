@@ -6,7 +6,7 @@ module.exports.getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-//алгоритм тасования Фишера-Йетса
+// алгоритм тасования Фишера-Йетса
 
 module.exports.shuffle = (someArray) => {
   for (let i = someArray.length - 1; i > 0; i--) {
