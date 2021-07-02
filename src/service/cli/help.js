@@ -12,8 +12,7 @@ const commandsDescription = Object.entries(Commands)
   .map(([command, description]) => `      ${command}: ${description}`).join(`\n`);
 
 
-const helpText = `
-    Программа запускает http-сервер и формирует файл с данными для api.
+const helpText = `Программа запускает http-сервер и формирует файл с данными для api.
 
       Гайд:
       server <command>
