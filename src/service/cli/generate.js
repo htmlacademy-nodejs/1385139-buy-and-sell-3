@@ -66,7 +66,7 @@ const PictureRestrict = {
 
 const getPictureFileName = (number) => number >= 10 ? `item${number}.jpg` : `item0${number}.jpg`;
 
-const getRandomCategory = () => [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]];
+const getRandomCategory = () => CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)];
 
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
@@ -75,7 +75,7 @@ const generateOffers = (count) => (
     description: shuffle(SENTENCES).slice(1, 5).join(` `),
     type: OfferType[Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)]],
     sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
-    category: [...new Set(Array(getRandomInt(1, CATEGORIES.length)).fill({}).map(getRandomCategory).flat())],
+    category: [...new Set(Array(getRandomInt(1, CATEGORIES.length)).fill({}).map(getRandomCategory))],
   }))
 );
 
