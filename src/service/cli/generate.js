@@ -7,6 +7,7 @@ const {
 const { ExitCode } = require('../../const');
 
 const DEFAULT_COUNT = 1;
+const MAX_OFFERS_COUNT = 1000;
 const FILE_NAME = `mocks.json`;
 
 const TITLES = [
@@ -65,6 +66,8 @@ const PictureRestrict = {
 
 const getPictureFileName = (number) => number >= 10 ? `item${number}.jpg` : `item0${number}.jpg`;
 
+const getRandomCategory = () => [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]];
+
 const generateOffers = (count) => (
   Array(count).fill({}).map(() => ({
     title: TITLES[getRandomInt(0, TITLES.length - 1)],
@@ -72,7 +75,7 @@ const generateOffers = (count) => (
     description: shuffle(SENTENCES).slice(1, 5).join(` `),
     type: OfferType[Object.keys(OfferType)[Math.floor(Math.random() * Object.keys(OfferType).length)]],
     sum: getRandomInt(SumRestrict.MIN, SumRestrict.MAX),
-    category: [CATEGORIES[getRandomInt(0, CATEGORIES.length - 1)]],
+    category: [...new Set(Array(getRandomInt(1, CATEGORIES.length)).fill({}).map(getRandomCategory).flat())],
   }))
 );
 
@@ -82,8 +85,8 @@ module.exports = {
     const [count] = args;
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
 
-    if (countOffer > 1000) {
-      console.info('Не больше 1000 объявлений');
+    if (countOffer > MAX_OFFERS_COUNT) {
+      console.info(`No more than ${MAX_OFFERS_COUNT} offers.`);
       process.exit(ExitCode.error);
     }
 
