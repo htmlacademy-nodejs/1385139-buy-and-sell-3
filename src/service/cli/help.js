@@ -23,6 +23,6 @@ ${commandsDescription}`;
 module.exports = {
   name: `--help`,
   run() {
-    console.info(chalk.magenta(helpText));
+    console.info(chalk.grey(helpText));
   }
 };

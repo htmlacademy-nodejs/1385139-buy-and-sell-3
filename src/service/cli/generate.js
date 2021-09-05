@@ -4,7 +4,8 @@ const {
   getRandomInt,
   shuffle,
 } = require(`../../utils`);
-const { ExitCode } = require('../../const');
+const {ExitCode} = require(`../../const`);
+const chalk = require("chalk");
 
 const DEFAULT_COUNT = 1;
 const MAX_OFFERS_COUNT = 1000;
@@ -86,7 +87,7 @@ module.exports = {
     const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
 
     if (countOffer > MAX_OFFERS_COUNT) {
-      console.info(`No more than ${MAX_OFFERS_COUNT} offers.`);
+      console.info(chalk.red(`No more than ${MAX_OFFERS_COUNT} offers.`));
       process.exit(ExitCode.error);
     }
 
@@ -94,10 +95,10 @@ module.exports = {
 
     fs.writeFile(FILE_NAME, content, (err) => {
       if (err) {
-        return console.error(`Can't write data to file...`);
+        return console.error(chalk.red(`Can't write data to file...`));
       }
 
-      return console.info(`Operation success. File created.`);
+      return console.info(chalk.green(`Operation success. File created.`));
     });
   }
 };
