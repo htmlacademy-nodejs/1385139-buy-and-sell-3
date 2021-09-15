@@ -50,7 +50,7 @@ module.exports = {
   name: `--server`,
   run(args) {
     const [customPort] = args;
-    const port = Number.parseInt(customPort, 10) || DEFAULT_PORT;
+    const port = parseInt(customPort, 10) || DEFAULT_PORT;
 
     http.createServer(onClientConnect)
       .listen(port)

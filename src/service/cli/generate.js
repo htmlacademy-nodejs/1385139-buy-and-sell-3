@@ -64,7 +64,7 @@ module.exports = {
     const categories = await readContent(FILE_CATEGORIES_PATH);
 
     const [count] = args;
-    const countOffer = Number.parseInt(count, 10) || DEFAULT_COUNT;
+    const countOffer = parseInt(count, 10) || DEFAULT_COUNT;
 
     if (countOffer > MAX_OFFERS_COUNT) {
       console.info(chalk.red(`No more than ${MAX_OFFERS_COUNT} offers.`));
