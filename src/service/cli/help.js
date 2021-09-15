@@ -5,7 +5,8 @@ const chalk = require(`chalk`);
 const Commands = {
   '--version': `выводит номер версии`,
   '--help': ` печатает этот текст`,
-  '--generate <count>': `формирует файл mocks.json`
+  '--generate <count>': `формирует файл mocks.json`,
+  '--server <port>': `запускет http-сервер. В качестве параметра можно указать номер порта, по умолчанию запускается на 3000`
 };
 
 const commandsDescription = Object.entries(Commands)
